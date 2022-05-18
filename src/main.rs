@@ -21,6 +21,14 @@ mod Vector3 {
         pub fn dot_product(&self, vec2: &Vector3) -> f64 {
             return self.x*vec2.x + self.y*vec2.y + self.z*vec2.z;
         }
+
+        pub fn normalize(&self) -> Self{
+            let mag = self.magnitude();
+            let x = self.x/mag;
+            let y = self.y/mag;
+            let z = self.z/mag;
+            return Vector3{x, y, z}
+        }
     }
 
 
@@ -31,4 +39,6 @@ mod Vector3 {
 fn main() {
     let test: Vector3::Vector3 = Vector3::Vector3{x: 12.9, y: 57.3, z: 82.9};
     println!("magnitude of test: {}", test.magnitude());
+    // println!("magnitude of test: {}", test.normalize());
+    println!("magnitude of test: {}", test.normalize().magnitude());
 }
