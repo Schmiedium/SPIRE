@@ -58,7 +58,12 @@ mod particle {
         position: Vector3,
         velocity: Vector3,
         acceleration: Vector3,
+
+        damping: f64,
+        inverse_mass: f64
     }
+
+
 }
 
 
