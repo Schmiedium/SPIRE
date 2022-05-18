@@ -1,3 +1,4 @@
+
 mod vector3 {
     use std::ops::Add;
     use std::ops::Sub;
@@ -54,8 +55,20 @@ mod vector3 {
 
 
 fn main() {
-    let test: vector3::Vector3 = vector3::Vector3{x: 12.9, y: 57.3, z: 82.9};
-    println!("magnitude of test: {}", test.magnitude());
-    // println!("magnitude of test: {}", test.normalize());
-    println!("magnitude of test: {}", test.normalize().magnitude());
+
 }
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn verify_cross_product() {
+
+    }
+
+    #[test]
+    fn verify_dot_product() {
+        
+    }
+
+}
+
