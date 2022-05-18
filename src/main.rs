@@ -13,16 +13,16 @@ mod vector3 {
             return f64::sqrt(self.x*self.x + self.y*self.y + self.z*self.z);
         }
 
-        pub fn cross_product(&self, vec2: &Vector3) -> Vector3 {
-            let x = self.y*vec2.z - self.z*vec2.y;
-            let y = self.z*vec2.x - self.x*vec2.z;
-            let z = self.x*vec2.y - self.y*vec2.x;
+        pub fn cross_product(&self, rhs: &Vector3) -> Vector3 {
+            let x = self.y*rhs.z - self.z*rhs.y;
+            let y = self.z*rhs.x - self.x*rhs.z;
+            let z = self.x*rhs.y - self.y*rhs.x;
             let cross = Vector3 {x, y, z};
             return cross;
         }
 
-        pub fn dot_product(&self, vec2: &Vector3) -> f64 {
-            return self.x*vec2.x + self.y*vec2.y + self.z*vec2.z;
+        pub fn dot_product(&self, rhs: &Vector3) -> f64 {
+            return self.x*rhs.x + self.y*rhs.y + self.z*rhs.z;
         }
 
         pub fn normalize(&self) -> Self{
