@@ -1,4 +1,4 @@
-mod Vector3 {
+mod vector3 {
     use std::ops::Add;
     use std::ops::Sub;
     pub struct Vector3 {
@@ -34,11 +34,19 @@ mod Vector3 {
     }
     
     impl Add for Vector3 {
+        type Output =  Vector3;
 
+        fn add(self, rhs: Vector3) -> Vector3 {
+            Vector3 {x: self.x + rhs.x, y: self.y + rhs.y, z: self.z + rhs.z}
+        }
     }
 
     impl Sub for Vector3 {
-        
+        type Output = Vector3;
+
+        fn sub(self, rhs: Vector3) -> Vector3 {
+            Vector3 {x: self.x - rhs.x, y: self.y - rhs.y, z: self.z - rhs.z}            
+        }
     }
 
 
@@ -46,7 +54,7 @@ mod Vector3 {
 
 
 fn main() {
-    let test: Vector3::Vector3 = Vector3::Vector3{x: 12.9, y: 57.3, z: 82.9};
+    let test: vector3::Vector3 = vector3::Vector3{x: 12.9, y: 57.3, z: 82.9};
     println!("magnitude of test: {}", test.magnitude());
     // println!("magnitude of test: {}", test.normalize());
     println!("magnitude of test: {}", test.normalize().magnitude());
