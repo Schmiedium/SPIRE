@@ -49,8 +49,16 @@ mod vector3 {
             Vector3 {x: self.x - rhs.x, y: self.y - rhs.y, z: self.z - rhs.z}            
         }
     }
+}
 
+mod particle {
+    use crate::vector3::Vector3;
 
+    pub struct Particle {
+        position: Vector3,
+        velocity: Vector3,
+        acceleration: Vector3,
+    }
 }
 
 
@@ -60,14 +68,16 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
     fn verify_cross_product() {
-
+        assert_eq!();
     }
 
     #[test]
     fn verify_dot_product() {
-        
+        assert_eq!();
     }
 
 }
