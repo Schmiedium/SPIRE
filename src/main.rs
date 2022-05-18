@@ -1,4 +1,6 @@
 mod Vector3 {
+    use std::ops::Add;
+    use std::ops::Sub;
     pub struct Vector3 {
         pub x: f64,
         pub y: f64,
@@ -30,7 +32,14 @@ mod Vector3 {
             return Vector3{x, y, z}
         }
     }
+    
+    impl Add for Vector3 {
 
+    }
+
+    impl Sub for Vector3 {
+        
+    }
 
 
 }
