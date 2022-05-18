@@ -12,10 +12,10 @@ mod vector3 {
             return f64::sqrt(self.x*self.x + self.y*self.y + self.z*self.z);
         }
 
-        pub fn cross_product(vec1: &Vector3, vec2: &Vector3) -> Vector3 {
-            let x = vec1.y*vec2.z - vec1.z*vec1.y;
-            let y = vec1.z*vec1.x - vec1.x*vec2.z;
-            let z = vec1.x*vec2.y - vec1.y*vec2.x;
+        pub fn cross_product(&self, vec2: &Vector3) -> Vector3 {
+            let x = self.y*vec2.z - self.z*vec2.y;
+            let y = self.z*vec2.x - self.x*vec2.z;
+            let z = self.x*vec2.y - self.y*vec2.x;
             let cross = Vector3 {x, y, z};
             return cross;
         }
