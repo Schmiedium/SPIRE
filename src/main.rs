@@ -1,4 +1,5 @@
-use simba;
+extern crate simba;
+extern crate nalgebra as na;
 mod vector3 {
     use std::ops::Add;
     use std::ops::Sub;
@@ -73,7 +74,7 @@ mod particle {
 
 
 fn main() {
-    let cat: simba::scalar = 42;
+
 }
 
 #[cfg(test)]
