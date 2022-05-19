@@ -1,5 +1,7 @@
 extern crate simba;
 extern crate nalgebra as na;
+
+
 mod vector3 {
     use std::ops::Add;
     use std::ops::Sub;
@@ -81,6 +83,7 @@ fn main() {
 mod tests {
     use super::*;
     use crate::vector3::Vector3;
+    
 
     #[test]
     fn verify_cross_product() {
@@ -100,6 +103,18 @@ mod tests {
         assert_eq!(x.dot_product(&y), 0.0);
         assert_eq!(y.dot_product(&z), 0.0);
         assert_eq!(x.dot_product(&z), 0.0);
+    }
+
+    #[test]
+    fn test_na() {
+        // Arguments order: left, right, bottom, top, znear, zfar.
+        use na::{Orthographic3, Point3, Vector3};
+        let orth = Orthographic3::new(1.0, 2.0, -3.0, -2.5, 10.0, 900.0);
+        let pt   = Point3::new(1.0, -3.0, -10.0);
+        let vec  = Vector3::new(21.0, 0.0, 0.0);
+
+        assert_eq!(orth.project_point(&pt),   Point3::new(-1.0, -1.0, -1.0));
+        assert_eq!(orth.project_vector(&vec), Vector3::new(42.0, 0.0, 0.0));
     }
 
 }
