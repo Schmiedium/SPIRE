@@ -1,13 +1,16 @@
-
+use simba;
 mod vector3 {
     use std::ops::Add;
     use std::ops::Sub;
+
+    #[derive(Debug, PartialEq)]
     pub struct Vector3 {
         pub x: f64,
         pub y: f64,
         pub z: f64,
     }
 
+    
     impl Vector3{
         pub fn magnitude (&self) -> f64 {
             return f64::sqrt(self.x*self.x + self.y*self.y + self.z*self.z);
@@ -49,6 +52,8 @@ mod vector3 {
             Vector3 {x: self.x - rhs.x, y: self.y - rhs.y, z: self.z - rhs.z}            
         }
     }
+
+    impl Eq for Vector3 {}
 }
 
 mod particle {
@@ -68,21 +73,32 @@ mod particle {
 
 
 fn main() {
-
+    let cat: simba::scalar = 42;
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::vector3::Vector3;
 
     #[test]
     fn verify_cross_product() {
-        assert_eq!();
+        let x: vector3::Vector3 = Vector3 {x: 1.0, y: 0.0, z: 0.0};
+        let y: vector3::Vector3 = Vector3 {x: 0.0, y: 1.0, z: 0.0};
+        let z: vector3::Vector3 = Vector3 {x: 0.0, y: 0.0, z: 1.0};
+        assert_eq!(x.cross_product(&y), z);
+        assert_eq!(y.cross_product(&z), x);
+        assert_eq!(z.cross_product(&x), y);
     }
 
     #[test]
     fn verify_dot_product() {
-        assert_eq!();
+        let x: vector3::Vector3 = Vector3{x: 1.0, y: 0.0, z: 0.0};
+        let y: vector3::Vector3 = Vector3{x: 0.0, y: 1.0, z: 0.0};
+        let z: vector3::Vector3 = Vector3{x: 0.0, y: 0.0, z: 1.0};
+        assert_eq!(x.dot_product(&y), 0.0);
+        assert_eq!(y.dot_product(&z), 0.0);
+        assert_eq!(x.dot_product(&z), 0.0);
     }
 
 }
