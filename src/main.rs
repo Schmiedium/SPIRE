@@ -87,9 +87,9 @@ mod tests {
 
     #[test]
     fn verify_cross_product() {
-        let x: vector3::Vector3 = Vector3 {x: 1.0, y: 0.0, z: 0.0};
-        let y: vector3::Vector3 = Vector3 {x: 0.0, y: 1.0, z: 0.0};
-        let z: vector3::Vector3 = Vector3 {x: 0.0, y: 0.0, z: 1.0};
+        let x: Vector3 = Vector3 {x: 1.0, y: 0.0, z: 0.0};
+        let y: Vector3 = Vector3 {x: 0.0, y: 1.0, z: 0.0};
+        let z: Vector3 = Vector3 {x: 0.0, y: 0.0, z: 1.0};
         assert_eq!(x.cross_product(&y), z);
         assert_eq!(y.cross_product(&z), x);
         assert_eq!(z.cross_product(&x), y);
@@ -97,9 +97,9 @@ mod tests {
 
     #[test]
     fn verify_dot_product() {
-        let x: vector3::Vector3 = Vector3{x: 1.0, y: 0.0, z: 0.0};
-        let y: vector3::Vector3 = Vector3{x: 0.0, y: 1.0, z: 0.0};
-        let z: vector3::Vector3 = Vector3{x: 0.0, y: 0.0, z: 1.0};
+        let x: Vector3 = Vector3{x: 1.0, y: 0.0, z: 0.0};
+        let y: Vector3 = Vector3{x: 0.0, y: 1.0, z: 0.0};
+        let z: Vector3 = Vector3{x: 0.0, y: 0.0, z: 1.0};
         assert_eq!(x.dot_product(&y), 0.0);
         assert_eq!(y.dot_product(&z), 0.0);
         assert_eq!(x.dot_product(&z), 0.0);
