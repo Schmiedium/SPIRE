@@ -153,6 +153,14 @@ mod particle {
             let velocity5: Vector3 = self.velocity - accel4**dt;
             let v15: f64 = (velocity5 - *wind_vector).magnitude();
 
+            let return_vel = self.velocity - (accel1 + accel2*2.0 + accel3*2.0 + accel4)**dt*(1.0/6.0 as f64);
+
+            let retrun_pos = self.position + (self.velocity+return_vel)**dt;
+
+            self.velocity = return_vel;
+            self.position = retrun_pos;
+
+
 
         }
     }
