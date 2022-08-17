@@ -113,7 +113,7 @@ mod particle {
     impl Particle {
 
         /// Runge Kutta 4 implementation for a 
-        /// 3 degrees of freedommodel 
+        /// 3 degrees of freedom model 
         fn update_position(&mut self, wind_vector: &Vector3, grav: &f64, drag_coefficient: &f64, dt: &f64) -> () {
             let v11: f64 = (self.velocity - *wind_vector).magnitude();
             
@@ -159,9 +159,6 @@ mod particle {
 
             self.velocity = return_vel;
             self.position = retrun_pos;
-
-
-
         }
     }
 }
